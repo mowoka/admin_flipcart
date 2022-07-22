@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useState } from 'react';
 import Layout from '../../components/Layout';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import Input from '../../components/UI/Input';
-import {isUserLoggedIn, login} from '../../store/actions';
+import { login} from '../../store/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom'
 
@@ -15,12 +15,6 @@ const Signin = (props) => {
 
   const auth = useSelector(state => state.auth);
 
-  useEffect(() => {
-    if(!auth.authenticate){
-      dispatch(isUserLoggedIn());
-    }
-  }, []);
-
   const userLogin = (e) => {
     e.preventDefault();
     
@@ -31,18 +25,12 @@ const Signin = (props) => {
 
     dispatch(login(user));
 
-    if(auth.authenticate){
-      return <Navigate to='/' />
-    }
   }
 
   if(auth.authenticate){
     return <Navigate to='/' />
   }
  
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-
-
   return (
     <Layout>
       <Container>
