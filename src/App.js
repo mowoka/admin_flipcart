@@ -9,6 +9,8 @@ import Signin from "./containers/Signin";
 import Signup from "./containers/Signup";
 import {isUserLoggedIn} from './store/actions';
 import { useDispatch, useSelector } from 'react-redux';
+import Products from "./containers/products";
+import Orders from "./containers/orders";
 
 
 function App() {
@@ -33,6 +35,22 @@ function App() {
           element={
             <PrivateRoute>
               <Home />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/products"
+          element={
+            <PrivateRoute>
+              <Products/>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <PrivateRoute>
+              <Orders />
             </PrivateRoute>
           }
         />
