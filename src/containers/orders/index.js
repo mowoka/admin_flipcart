@@ -3,7 +3,7 @@ import Layout from '../../components/Layout'
  
 const Orders = () => {
    return (
-     <Layout>
+     <Layout sidebar>
         Orders
      </Layout>
    )
